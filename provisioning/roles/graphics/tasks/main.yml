@@ -1,0 +1,13 @@
+---
+- name: install the xorg packages
+  pacman: name={{ item }} state=installed
+  with_items:
+    - xorg-server
+    - xorg-xdm
+    - xdm-archlinux
+
+- name: start the xdm service
+  service: name=xdm state=started
+
+- name: install the rxvt-unicode package
+  pacman: name=rxvt-unicode state=installed

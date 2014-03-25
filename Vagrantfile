@@ -13,4 +13,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.playbook = "provisioning/playbook.yml"
     ansible.inventory_path = "provisioning/inventory"
   end
+
+  config.vm.provider "virtualbox" do |virtualbox|
+    virtualbox.gui = true
+  end
 end

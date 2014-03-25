@@ -1,0 +1,8 @@
+---
+- name: create user tom
+  user: name=tom state=present
+
+- name: add ssh pub key to authorized_keys for user tom
+  authorized_key: user=tom key="{{ item }}"
+  with_file:
+    - ../files/devel_rsa.pub
