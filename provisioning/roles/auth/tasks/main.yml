@@ -1,8 +1,12 @@
 ---
 - name: create user tom
-  user: name=tom state=present
+  user: name=tom state=present password="$6$rounds=100000$MKc18svJLAbkOvmN$TFbVla0U65J4be2ZGq7OzGPVIqZTBcnDa1O8kunbHArgVKlaxv1pU1Kkh9VtiWIs47oMj2lb4DEuoUJ.L6L19/"
 
 - name: add ssh pub key to authorized_keys for user tom
   authorized_key: user=tom key="{{ item }}"
   with_file:
     - ../files/devel_rsa.pub
+
+- name: grant sudo rights to user tom
+  copy: src=sudoers_tom dest=/etc/sudoers.d/10_tom
+    owner=root group=root mode=0440 validate='visudo -cf %s'

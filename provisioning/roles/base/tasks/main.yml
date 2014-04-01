@@ -1,0 +1,7 @@
+---
+- name: install some essential packages
+  pacman: name={{ item }} state=installed
+  with_items:
+    - vim
+    - git
+    - ruby

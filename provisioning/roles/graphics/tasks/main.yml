@@ -7,7 +7,13 @@
     - xdm-archlinux
 
 - name: start the xdm service
-  service: name=xdm state=started
+  service: name=xdm-archlinux enabled=yes state=started
 
 - name: install the rxvt-unicode package
   pacman: name=rxvt-unicode state=installed
+
+- name: install mesa-libgl
+  pacman: name=mesa-libgl state=installed
+
+- name: install the awesome window manager package
+  pacman: name=awesome state=installed

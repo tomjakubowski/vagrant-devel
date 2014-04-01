@@ -2,8 +2,7 @@
 - hosts: all
   sudo: true
   roles:
+    - base
     - auth
+    # - dotfiles
     - graphics
-  tasks:
-    - name: install the vim package
-      pacman: name=vim state=installed
