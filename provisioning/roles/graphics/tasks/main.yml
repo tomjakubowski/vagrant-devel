@@ -12,6 +12,9 @@
 - name: install the rxvt-unicode package
   pacman: name=rxvt-unicode state=installed
 
+- name: install the xterm package
+  pacman: name=xterm state=installed
+
 - name: install mesa-libgl
   pacman: name=mesa-libgl state=installed
 
