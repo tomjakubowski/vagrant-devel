@@ -14,7 +14,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.inventory_path = "provisioning/inventory"
   end
 
-  config.vm.provider "virtualbox" do |virtualbox|
-    virtualbox.gui = true
+  config.vm.provider "virtualbox" do |v|
+    v.gui = true
+    v.customize ["modifyvm", :id, "--vram", "128"]
+    v.customize ["modifyvm", :id, "--accelerate3d", "on"]
   end
 end
