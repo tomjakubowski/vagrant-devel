@@ -4,5 +4,10 @@
   roles:
     - base
     - auth
-    # - dotfiles
     - graphics
+
+- hosts: all
+  sudo: false
+  remote_user: tom
+  roles:
+    - dotfiles

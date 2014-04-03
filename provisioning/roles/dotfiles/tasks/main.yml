@@ -1,0 +1,6 @@
+---
+- name: clone the dotfiles repo
+  git: repo=https://github.com/tomjakubowski/dotfiles
+       dest=~tom/dotfiles
+- name: install the dotfiles repo
+  shell: cd ~tom/dotfiles && yes no | rake install
