@@ -4,6 +4,7 @@
   with_items:
     - xorg-server
     - xorg-xdm
+    - xorg-xset
     - xdm-archlinux
 
 - name: start the xdm service
@@ -20,3 +21,12 @@
 
 - name: install the awesome window manager package
   pacman: name=awesome state=installed
+
+- name: install fonts
+  pacman: name={{ item }} state=installed
+  with_items:
+    - adobe-source-code-pro-fonts
+
+- name: configure font directories
+  with_items: "cd {{ item }} && mkfontscale && mkfontdir"
+    - "/usr/share/fonts/adobe-source-code-pro"
