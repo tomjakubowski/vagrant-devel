@@ -5,3 +5,9 @@
     - vim
     - git
     - ruby
+
+- name: install git-credential-netrc
+  get_url: url=https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc dest=/usr/local/bin/git-credential-netrc
+
+- name: make git-credential-netrc executable
+  file: path=/usr/local/bin/git-credential-netrc mode=0755
