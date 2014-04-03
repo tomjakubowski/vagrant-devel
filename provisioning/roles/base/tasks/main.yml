@@ -11,3 +11,6 @@
 
 - name: make git-credential-netrc executable
   file: path=/usr/local/bin/git-credential-netrc mode=0755
+
+- name: install keychain
+  pacman: name=keychain state=installed
